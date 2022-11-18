@@ -41,9 +41,17 @@ router.post("/", (req, res) => {
   }
 
   const newVideo = {
-    title,
-    description,
     id: getNewId(),
+    title,
+    channel: "channel",
+    image: "",
+    description,
+    views: 0,
+    likes: 0,
+    duration: "2:14",
+    video: "",
+    timestamp: 11172022,
+    comments: [],
   };
 
   // update jason file with new video
