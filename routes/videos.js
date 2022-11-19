@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require("node:path");
-const { getNewId, writeJSONFile } = require("../helper/helper");
+const { getNewId, writeJSONFile, newDate } = require("../helper/helper");
 const videosJSONFile = path.join(__dirname, "../data/videos.json"); // path to videos.jason
 const videos = require(videosJSONFile);
 
@@ -33,8 +33,8 @@ router.get("/:id", (req, res) => {
 
 // api to crete new video
 router.post("/", (req, res) => {
-  const { title, description } = req.body;
-  if (!title || !description) {
+  const { title, description, thumbnail } = req.body;
+  if (!title || !description || !thumbnail) {
     return res.status(404).json({
       error: "Please provide all the information needed for adding a new video",
     });
@@ -44,13 +44,13 @@ router.post("/", (req, res) => {
     id: getNewId(),
     title,
     channel: "channel",
-    image: "",
+    image: thumbnail,
     description,
     views: 0,
     likes: 0,
     duration: "2:14",
     video: "",
-    timestamp: 11172022,
+    timestamp: newDate(),
     comments: [],
   };
 

@@ -1,12 +1,20 @@
 // functions not related to APIs
 const { v4: uuidv4 } = require("uuid"); //code from uuid documentation
 const fs = require("node:fs");
+// const timestamp = require("unix-timestamp");
 
 
 
-// function to create a new id using uuid
+// function to create a new id
 const getNewId = () => {
   return uuidv4();
+};
+
+// function to create a new timestamp
+const newDate = () => {
+    return Math.floor(
+    Date.now() / 1000
+  );
 };
 
 
@@ -22,5 +30,6 @@ const writeJSONFile = (filename, content) => {
 
 module.exports = {
     getNewId,
-    writeJSONFile
+    writeJSONFile,
+    newDate
 };
