@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const path = require("node:path");
-const { getNewId, writeJSONFile, newDate } = require("../helper/helper");
+const { getNewId, writeJSONFile } = require("../helper/helper");
 const videosJSONFile = path.join(__dirname, "../data/videos.json"); // path to videos.jason
 const videos = require(videosJSONFile);
 
@@ -43,14 +43,14 @@ router.post("/", (req, res) => {
   const newVideo = {
     id: getNewId(),
     title,
-    channel: "channel",
+    channel: "Jaqueline Nacarate",
     image: thumbnail,
     description,
     views: 0,
     likes: 0,
     duration: "2:14",
     video: "",
-    timestamp: newDate(),
+    timestamp:23072024,
     comments: [],
   };
 
@@ -60,6 +60,39 @@ router.post("/", (req, res) => {
 
   // response to the client
   res.status(201).json(newVideo);
+});
+
+// api to crete new comment
+router.post("/:id/comments", (req, res) => {
+  //  const { comment } = videos.map((video) =>
+  // if ()
+  const {comment} = req.body
+  //    video.id === req.params.id ? { ...video, ...req.body } : video
+  //  );
+  if (!comment) {
+    return res.status(404).json({
+      error: "Please add a new comment",
+    });
+  }
+
+  const newComment = {
+    id: getNewId(),
+    name: "Mahdi",
+    comment,
+    likes: 0,
+    timestamp:23072022,
+  };
+
+  videos.map((video) => {
+    if (video.id === req.params.id) {
+      // update jason file with new comment
+      video.comments.unshift(newComment);
+      writeJSONFile(videosJSONFile, videos);
+
+      // response to the client
+      res.status(201).json(video);
+    }
+  });
 });
 
 // api to update specific properties of the object

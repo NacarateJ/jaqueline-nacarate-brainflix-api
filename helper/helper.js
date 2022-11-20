@@ -11,11 +11,11 @@ const getNewId = () => {
 };
 
 // function to create a new timestamp
-const newDate = () => {
-    return Math.floor(
-    Date.now() / 1000
-  );
-};
+// const newDate = () => {
+//     return Math.floor(
+//     Date.now() / 1000
+//   );
+// };
 
 
 // function to write to the json file
@@ -31,5 +31,5 @@ const writeJSONFile = (filename, content) => {
 module.exports = {
     getNewId,
     writeJSONFile,
-    newDate
+    // newDate
 };
