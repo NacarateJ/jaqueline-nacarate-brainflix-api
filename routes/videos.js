@@ -2,14 +2,9 @@
 const express = require("express");
 const router = express.Router();
 const path = require("node:path");
-const { getNewId, writeJSONFile } = require("../helper/helper");
+const { getNewId, writeJSONFile, newDate } = require("../helper/helper");
 const videosJSONFile = path.join(__dirname, "../data/videos.json"); // path to videos.jason
 const videos = require(videosJSONFile);
-
-// api to serve all the requests to http://localhost:8080/
-// app.get("/", (_req, res) => {
-// res.send("Hello World!")
-// })
 
 // api to get videos from videos.json
 //localhost:8080/api/videos
@@ -50,7 +45,7 @@ router.post("/", (req, res) => {
     likes: 0,
     duration: "2:14",
     video: "",
-    timestamp:23072024,
+    timestamp: newDate(),
     comments: [],
   };
 
@@ -64,11 +59,7 @@ router.post("/", (req, res) => {
 
 // api to crete new comment
 router.post("/:id/comments", (req, res) => {
-  //  const { comment } = videos.map((video) =>
-  // if ()
-  const {comment} = req.body
-  //    video.id === req.params.id ? { ...video, ...req.body } : video
-  //  );
+  const { comment } = req.body;
   if (!comment) {
     return res.status(404).json({
       error: "Please add a new comment",
@@ -80,7 +71,7 @@ router.post("/:id/comments", (req, res) => {
     name: "Mahdi",
     comment,
     likes: 0,
-    timestamp:23072022,
+    timestamp: newDate(),
   };
 
   videos.map((video) => {
@@ -94,6 +85,9 @@ router.post("/:id/comments", (req, res) => {
     }
   });
 });
+
+// Didn't have time to add more functionalities to the project but I intend to
+// That's why I'm keeping this APIs to keep working on it in future
 
 // api to update specific properties of the object
 router.patch("/:id", (req, res) => {

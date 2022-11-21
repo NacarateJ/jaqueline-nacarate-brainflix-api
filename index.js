@@ -7,10 +7,6 @@ const app = express(); //initialize express server
 const videoRouter = require("./routes/videos"); //video router
 // const logger = require("./middlewares/logger");
 
-// api to serve all the requests to http://localhost:8080/
-// app.get("/", (_req, res) => {
-// res.send("Hello World!")
-// })
 
 // middleware for handling POST request or parsing new information from req.body
 // JSON parsing middleware
@@ -21,7 +17,7 @@ app.use(cors());
 
 // serving the static files (imgs, index.html file) from the public folder
 // creating a path to (imgs, index.html file) using path module
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
