@@ -1,5 +1,5 @@
 # BrainFlix
-The BrainFlix is fullstack app for a fictional mock video streaming platform. Creative mock ups and design specs were used to create a fully functional and responsive live site respecting a mobile-first design approach.
+BrainFlix is a fullstack app for a fictional mock video streaming platform. Creative mock ups and design specs were used to create a fully functional and responsive live site respecting a mobile-first design approach.
 
 ## General Functionalities
 * An REST API service was built to manage the videos data. It had the following end-points:
