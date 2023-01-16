@@ -16,7 +16,21 @@ BrainFlix is a fullstack app for a fictional mock video streaming platform. Crea
 2. Run ```nmp i``` to install all the required packages for the app;
 3. To start the Front-end run the command ```npm start```;
 4. To start the Back-end run the command ```npm run server```;
-5. Add .env file with your preferred port number: ```PORT=YOUR PORT NUMBETR```
+5. Add .env file with your preferred port number: ```PORT=YOUR PORT NUMBER```
+
+## Environment Variables
+1. Front-end:
+Add the following variables in .env file:
+
+```REACT_APP_API_URL=https://localhost:8080```
+
+PORT=8080
+
+
+2. Back-end:
+Add the following variables in .env file:
+
+```PORT = 8080```
 
 
 ## Demo
