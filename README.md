@@ -19,15 +19,14 @@ BrainFlix is a fullstack app for a fictional mock video streaming platform. Crea
 5. Add .env file with your preferred port number: ```PORT=YOUR PORT NUMBER```
 
 ## Environment Variables
-1. Front-end:
+1. Front-end: <br>
 Add the following variables in .env file:
 
 ```REACT_APP_API_URL=https://localhost:8080```
 
-PORT=8080
 
 
-2. Back-end:
+2. Back-end: <br>
 Add the following variables in .env file:
 
 ```PORT = 8080```
